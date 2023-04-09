@@ -52,7 +52,10 @@ def app():
             st.text('\nNumber of text chunks =' + str(len(chunks)) + '\n')
             st.text('Displaying the first 60 characters of each chunk')
             for i, chunk in enumerate(chunks):
-                st.text('Chunk' + str(i+1) + '==>' + chunk[:60])           
+                st.text('Chunk' + str(i+1) + '==>' + chunk[:60])  
+                
+            st.write('The full text of chunk 0:')
+            st.write(chunks[0])
    
 # run the app
 if __name__ == "__main__":
