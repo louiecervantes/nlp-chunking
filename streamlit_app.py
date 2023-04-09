@@ -2,9 +2,8 @@
 import streamlit as st
 import altair as alt
 import nltk
-import nltk.corpus
-nltk.download('punkt')
-nltk.download('wordnet')
+import numpy as np
+
 
 # Define the Streamlit app
 def app():
@@ -28,8 +27,30 @@ def app():
 
     with st.echo(code_location='below'):
         if st.button('Submit'):    
-            st.write('Perform chunking')
             
+            # Split the input text into chunks, where
+            # each chunk contains N words
+            def chunker(input_data, N):
+                input_words = input_data.split(' ')
+                output = []
+                cur_chunk = []
+                count = 0
+                for word in input_words:
+                    cur_chunk.append(word)
+                    count += 1
+                    if count == N:
+                        output.append(' '.join(cur_chunk))
+                        count, cur_chunk = 0, []
+                        
+                output.append(' '.join(cur_chunk))
+                return output
+                # Define the number of words in each chunk
+                chunk_size = 50
+                
+                chunks = chunker(str_input, chunk_size)
+                st.text('\nNumber of text chunks =', len(chunks), '\n')
+                for i, chunk in enumerate(chunks):
+                    st.text('Chunk', i+1, '==>', chunk[:50])           
    
 # run the app
 if __name__ == "__main__":
