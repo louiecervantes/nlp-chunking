@@ -46,12 +46,13 @@ def app():
                 return output
             
             # Define the number of words in each chunk
-            chunk_size = 100
+            chunk_size = 60
                 
             chunks = chunker(user_input, chunk_size)
             st.text('\nNumber of text chunks =' + str(len(chunks)) + '\n')
+            st.text('Displaying the first 60 characters of each chunk')
             for i, chunk in enumerate(chunks):
-                st.text('Chunk' + str(i+1) + '==>' + chunk[:30])           
+                st.text('Chunk' + str(i+1) + '==>' + chunk[:60])           
    
 # run the app
 if __name__ == "__main__":
