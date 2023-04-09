@@ -48,7 +48,7 @@ def app():
             # Define the number of words in each chunk
             chunk_size = 50
                 
-            chunks = chunker(str_input, chunk_size)
+            chunks = chunker(user_input, chunk_size)
             st.text('\nNumber of text chunks =', len(chunks), '\n')
             for i, chunk in enumerate(chunks):
                 st.text('Chunk', i+1, '==>', chunk[:50])           
