@@ -44,13 +44,14 @@ def app():
                         
                 output.append(' '.join(cur_chunk))
                 return output
-                # Define the number of words in each chunk
-                chunk_size = 50
+            
+        # Define the number of words in each chunk
+        chunk_size = 50
                 
-                chunks = chunker(str_input, chunk_size)
-                st.text('\nNumber of text chunks =', len(chunks), '\n')
-                for i, chunk in enumerate(chunks):
-                    st.text('Chunk', i+1, '==>', chunk[:50])           
+        chunks = chunker(str_input, chunk_size)
+        st.text('\nNumber of text chunks =', len(chunks), '\n')
+        for i, chunk in enumerate(chunks):
+            st.text('Chunk', i+1, '==>', chunk[:50])           
    
 # run the app
 if __name__ == "__main__":
