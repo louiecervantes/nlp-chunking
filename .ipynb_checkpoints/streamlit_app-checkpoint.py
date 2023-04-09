@@ -51,7 +51,7 @@ def app():
             chunks = chunker(user_input, chunk_size)
             st.text('\nNumber of text chunks =' + str(len(chunks)) + '\n')
             for i, chunk in enumerate(chunks):
-                st.text('Chunk' + str(i+1), '==>' + chunk[:50])           
+                st.text('Chunk' + str(i+1) + '==>' + chunk[:50])           
    
 # run the app
 if __name__ == "__main__":
